@@ -22,6 +22,7 @@ import com.th.frame.action.GlobalAction;
  * @version 1.1 <p>create</p>
  *
  */
+@SuppressWarnings("serial")
 public class LogGlobalAction extends GlobalAction{
 
 }
