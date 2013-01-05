@@ -1,0 +1,45 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:schemaLocation="http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+    
+	<!-- 
+	全局属性文件
+	本机开发： 
+	isDebug=true
+	生产环境:
+	isDebug=false
+	-->
+	<bean id="propertiesTemplate" class="com.th.frame.core.message.tmpl.PropertiesTemplate" lazy-init="false">
+		<property name="isDebug">
+			<value>true</value>
+		</property>
+		<property name="debugFiles">
+			<list>
+				<value>resource/properties/debug/global-debug.properties</value>
+			</list>
+		</property>
+		<property name="liveFiles">
+			<list>
+				<value>resource/properties/global.properties</value>
+			</list>
+		</property>		
+	</bean>
+	
+	<!-- core -->
+	<bean id="messageHelper" class="com.th.frame.core.message.impl.PropertiesMessageHelper" 
+		lazy-init="false" autowire="byName" init-method="buildDefaultProperties">
+	</bean>
+	
+	<bean id="encryptHelper" class="com.th.frame.core.encrypt.impl.AesEncryptHelper" 
+		lazy-init="true" autowire="byName">
+	</bean>		
+	    	
+	<!-- 数据库声明 -->
+	<import resource="resource/db/spring-datasource.xml"/>	
+
+	<!-- cxf服务声明 -->
+	<import resource="resource/cxf/spring-cxf-server.xml"/>	
+	<import resource="resource/cxf/spring-cxf-client.xml"/>
+		
+</beans>
