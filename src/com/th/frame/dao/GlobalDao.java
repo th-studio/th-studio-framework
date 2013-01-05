@@ -23,7 +23,7 @@ import java.util.List;
  * @version 1.1 <p>create</p>
  *
  */
-@SuppressWarnings("unchecked")
+@SuppressWarnings("rawtypes")
 public interface GlobalDao <T, PK extends Serializable>{
 
 	/**

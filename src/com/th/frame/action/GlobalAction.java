@@ -30,11 +30,12 @@ import com.th.frame.core.message.MessageHelper;
  * @version 1.1 <p>create</p>
  *
  */
-@SuppressWarnings("unchecked")
+@SuppressWarnings("serial")
 public abstract class GlobalAction extends ActionSupport{
 
 	protected HttpServletRequest request;
 	protected HttpServletResponse response;
+	@SuppressWarnings("rawtypes")
 	protected Map session;
 	
 	protected MessageHelper messageHelper ;
@@ -46,6 +47,7 @@ public abstract class GlobalAction extends ActionSupport{
 	public void setResponse(HttpServletResponse response) {
 		this.response = response;
 	}
+	@SuppressWarnings("rawtypes")
 	public void setSession(Map session) {
 		this.session = session;
 	}

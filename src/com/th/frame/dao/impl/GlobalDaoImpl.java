@@ -38,6 +38,7 @@ public class GlobalDaoImpl<T, PK extends Serializable> extends HibernateDaoSuppo
 		return this.getHibernateTemplate().find(hql, values);
 	}
 
+	@SuppressWarnings("rawtypes")
 	public Object get(Class entityClass, Serializable id) {
 		return this.getHibernateTemplate().get(entityClass, id);
 	}
